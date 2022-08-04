@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import CardProduct from "../../components/CardProduct";
-import { Produto } from "../../types/Item";
+import { CartContext } from "../../providers/auth";
+import { Produto,CartContextType } from "../../types/Item";
 
 import * as C from "./style";
 
@@ -11,6 +12,11 @@ const SingleProduct = () => {
   const { id } = useParams();
   const [produto, setProduto] = useState<Produto>();
   const [relatedProducts, setRelatedProducts] = useState<Produto[]>([]);
+  const {addProduct} = useContext(CartContext) as CartContextType
+
+  const handleClick = ()=>{
+    addProduct(produto)
+  }
 
   const getProduct = async (url: string) => {
     const res = await fetch(url);
@@ -44,7 +50,7 @@ const SingleProduct = () => {
             <h2>{produto.title}</h2>
             <p className="description">{produto.description}</p>
             <p className="price">R$ {produto.price.toFixed(2)}</p>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={handleClick}>Adicionar ao carrinho</button>
           </div>
         </C.SingleProductContainer>
         <C.RelatedProductsContainer>
