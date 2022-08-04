@@ -16,4 +16,18 @@ padding-top: 2.5rem;
     margin-right: calc((100vw - 1350px) / 2);
     margin-left: calc((100vw - 1350px) / 2);
   }
+  >h2{
+    text-transform: capitalize;
+    font-size: 3rem;
+    font-weight: 600;
+    color:#111;
+    margin-bottom: 2rem;
+  }
+  .categoryContainer{
+    display: flex;
+    flex-wrap: wrap;
+    > div{
+        margin-left: 2.7rem;
+    }
+  }
 `;

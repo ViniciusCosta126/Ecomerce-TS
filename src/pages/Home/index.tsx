@@ -26,20 +26,20 @@ const Home = () => {
         <div>
         <h1>Joalheria</h1>
         <C.ContainerProducts>
-          {produtos.map((item) => {
+          {produtos.map((item,index) => {
             if(item.category === "jewelery"){
               return(
-               <CardProduct item={item}/>
+               <CardProduct item={item} key={index}/>
               )
             }
           })}
         </C.ContainerProducts>
         <h1>Eletronicos</h1>
         <C.ContainerProducts>
-          {produtos.map((item) => {
+          {produtos.map((item,index) => {
             if(item.category === "electronics"){
               return(
-               <CardProduct item={item}/>
+               <CardProduct item={item} key={index}/>
               )
             }
           })}

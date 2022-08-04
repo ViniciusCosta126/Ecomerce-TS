@@ -51,11 +51,11 @@ const SingleProduct = () => {
           <>
           <h2>Produtos Relacionados</h2>
           <div>
-          {relatedProducts.map(relatedProduct =>{
+          {relatedProducts.map((relatedProduct,index) =>{
             if(relatedProduct.id === produto.id){
               return
             }
-            return <CardProduct item={relatedProduct}/>
+            return <CardProduct item={relatedProduct} key={index}/>
           })}
           </div>
           </>
